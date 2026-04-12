@@ -274,15 +274,30 @@ body.dark .navbar {
 
 .service-card {
     background: var(--card);
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.service-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.03);
 }
 
 .service-card:hover {
     border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
 }
 .service-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
 .service-card p { color: var(--muted-foreground); margin-bottom: 1.5rem; }
@@ -312,6 +327,141 @@ body.dark .navbar {
 .service-link:hover { text-decoration: underline; }
 .arrow { transition: transform 0.2s; }
 .service-link:hover .arrow { transform: translateX(4px); }
+
+/* Productos  */
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+/* DESKTOP GRID */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Separador suave en onda entre Productos y la siguiente sección */
+.products-wrapper {
+    position: relative;
+    padding-bottom: 1.25rem; /* espacio moderado antes de la siguiente sección */
+    margin-bottom: 1rem;
+    overflow: visible;
+}
+
+/* El separador en onda se ha retirado: ahora usaremos un título consistente para la sección 'nosotros' */
+
+/* Ajuste del espacio superior para la sección 'nosotros' para que quede próxima a Productos */
+#nosotros {
+    padding-top: 3rem; /* menos espacio que .section por defecto */
+}
+/* CARD */
+.product-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    flex-shrink: 0;
+}
+
+/* Layout: imagen en la parte superior, contenido abajo */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* IMAGEN */
+.product-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 220px; /* limita la altura en desktop */
+    object-fit: cover; /* ocupa todo el ancho y mantiene proporción */
+}
+
+/* CONTENIDO */
+.product-content {
+    padding: 1.5rem;
+}
+
+.product-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-content p {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+}
+
+.product-link {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* =========================
+   MOBILE (CLAVE)
+========================= */
+
+@media (max-width: 768px) {
+
+    .products-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 1rem 0 1.25rem 1rem; /* espacio izquierdo para que se vea el primer card correctamente */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* CARD TAMAÑO CONTROLADO */
+    .product-card {
+        min-width: 240px;
+        max-width: 240px;
+        scroll-snap-align: start;
+    }
+
+    /* 🔥 AQUÍ ESTABA EL PROBLEMA */
+    .product-img {
+        width: 100%;
+        height: auto;
+        max-height: 160px; /* límite razonable en móvil */
+        object-fit: cover;
+    }
+
+    /* Mostrar una ligera sombra/peek para indicar que hay más cards desplazables */
+    .products-grid > .product-card:first-child { margin-left: 0; }
+
+    /* accesibilidad: cuando se navega con teclado, que el card quede centrado */
+    .product-card:focus { outline: 2px solid rgba(166,30,30,0.15); }
+
+    .product-content {
+        padding: 1rem;
+    }
+
+    /* Ocultar scrollbar */
+    .products-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* espacio final */
+    .products-grid::after {
+        content: "";
+        min-width: 16px;
+    }
+}
+
 
 /* Misión y Visión */
 .grid-2 {
@@ -454,4 +604,33 @@ textarea { resize: none; }
 
 @media (min-width: 769px) {
     .hidden-mobile { display: inline; }
+}
+
+/* Indicador para sección de productos: oculto en desktop, visible en móvil */
+.scroll-indicator {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: block;
+        text-align: center;
+        font-size: 0.95rem;
+        color: var(--muted-foreground);
+        font-weight: 600;
+        margin-top: 1rem;
+        opacity: 0.95;
+    }
+
+    .scroll-indicator::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 8px;
+        border-right: 2px solid var(--muted-foreground);
+        border-bottom: 2px solid var(--muted-foreground);
+        transform: rotate(-45deg);
+        vertical-align: middle;
+    }
 }
