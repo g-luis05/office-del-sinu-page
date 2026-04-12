@@ -27,23 +27,6 @@ document.querySelectorAll('.reveal').forEach(el => {
     observer.observe(el);
 });
 
-// Manejo del Formulario de WhatsApp
-const contactForm = document.getElementById('whatsappForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('form-phone').value;
-        const message = document.getElementById('message').value;
-        
-        const whatsappMessage = `Hola, soy ${name}. ${message}. Mi teléfono es: ${phone}`;
-        const whatsappUrl = `https://wa.me/573015038798?text=${encodeURIComponent(whatsappMessage)}`;
-        
-        window.open(whatsappUrl, '_blank');
-    });
-}
-
 // Lógica de Modo Oscuro
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
