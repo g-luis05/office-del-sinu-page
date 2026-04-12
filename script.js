@@ -68,3 +68,11 @@ if (themeToggle) {
         lucide.createIcons();
     });
 }
+
+// GRID
+
+const section = document.querySelector('.products-grid');
+
+setTimeout(() => {
+    section.classList.add('hint');
+}, 1500);
