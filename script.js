@@ -60,7 +60,7 @@ setTimeout(() => {
     section.classList.add('hint');
 }, 1500);
 
-// Construir enlaces de WhatsApp desde atributos data-ws-message o data-ws-service
+
 const WA_PHONE = '573015038798';
 const serviceTemplate = 'Hola, vi su página web y estoy interesado en el servicio de {service}, ¿Podrían asesorarme?';
 
@@ -68,7 +68,7 @@ function buildWaHref(text){
     return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
 }
 
-// Mensajes ya completos (hero, productos u otros)
+
 document.querySelectorAll('a[data-ws-message]').forEach(anchor => {
     const raw = anchor.getAttribute('data-ws-message') || '';
     anchor.setAttribute('href', buildWaHref(raw));
@@ -76,7 +76,7 @@ document.querySelectorAll('a[data-ws-message]').forEach(anchor => {
     anchor.setAttribute('rel', 'noopener noreferrer');
 });
 
-// Mensajes para servicios: usamos plantilla única y sólo especificamos el nombre del servicio
+
 document.querySelectorAll('a[data-ws-service]').forEach(anchor => {
     const svc = anchor.getAttribute('data-ws-service') || '';
     const text = serviceTemplate.replace('{service}', svc);
