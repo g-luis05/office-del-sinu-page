@@ -1146,6 +1146,23 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Misión / Visión: centrar icono y título en pantallas pequeñas, mantener texto alineado a la izquierda */
+@media (max-width: 768px) {
+    .card-mv .icon-box-p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-mv h2,
+    .card-mv .text-3xl {
+        text-align: center;
+    }
+
+    .card-mv p {
+        text-align: center; /* centrar también el texto en móvil */
+    }
+}
+
 /* Footer: ajustes específicos para móviles */
 @media (max-width: 768px) {
     .footer {
