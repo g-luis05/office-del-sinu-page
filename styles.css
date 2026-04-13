@@ -136,9 +136,6 @@ body {
 }
 
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 100%;
     width: 100%;
 }
@@ -275,8 +272,10 @@ body {
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
     justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -310,6 +309,23 @@ body {
     color: var(--foreground);
     font-weight: 600;
     transition: background-color 0.2s;
+}
+
+/* Botón secundario, menos prominente que .btn-primary */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--muted-foreground);
+    padding: 0.6rem 1.25rem;
+    border-radius: calc(var(--radius) / 1.2);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: none;
+    transition: background-color 0.15s, color 0.15s, transform 0.12s;
+}
+.btn-secondary:hover {
+    background: var(--secondary);
+    color: var(--foreground);
 }
 
 .btn-primary:hover {
@@ -611,6 +627,53 @@ body {
         content: "";
         min-width: 16px;
     }
+}
+
+/* Marcas */
+
+.brands {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.brands-title {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.brands-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+}
+
+.brands-logos img {
+    height: 45px;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.brands-logos img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+
+    .brands-logos {
+        gap: 15px;
+    }
+
+    .brands-logos img {
+        height: 30px;           
+        opacity: 1;             
+        filter: none;           
+    }
+
 }
 
 
@@ -1081,4 +1144,50 @@ textarea {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Footer: ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .grid-3 > div {
+        text-align: center;
+    }
+
+    .footer h4 {
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer ul li button {
+        font-size: 0.98rem;
+        color: #cbd5db;
+        padding: 0.25rem 0;
+    }
+
+    .footer p {
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer .logo-img {
+        height: 36px;
+    }
+
+    .footer-bottom {
+        padding-top: 12px;
+        font-size: 0.8125rem;
+    }
 }
