@@ -84,3 +84,9 @@ document.querySelectorAll('a[data-ws-service]').forEach(anchor => {
     anchor.setAttribute('target', '_blank');
     anchor.setAttribute('rel', 'noopener noreferrer');
 });
+
+// Animación más suave
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
