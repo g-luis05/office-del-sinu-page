@@ -209,9 +209,14 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 100px 0;
+    padding: 120px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(120deg, #fff 60%, rgba(224,26,34,0.05));
+}
+
+.hero .container {
+    max-width: 1400px; 
 }
 
 .hero-grid {
