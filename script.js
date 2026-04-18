@@ -95,3 +95,24 @@ document.querySelectorAll('a[data-ws-service]').forEach(anchor => {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+
+// ===========================
+// Navbar — resaltar sección activa al hacer scroll
+// ===========================
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = Array.from(navLinks)
+    .map(link => document.getElementById(link.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.toggle('nav-active', link.getAttribute('href') === `#${id}`);
+            });
+        }
+    });
+}, { threshold: 0.35 });
+
+sections.forEach(s => navObserver.observe(s));

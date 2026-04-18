@@ -1384,7 +1384,226 @@ body:not(.loaded) .hero-buttons {
 }
 
 /* ============================================================
-   === 14. ANIMACIONES DE SCROLL (reveal)
+   === 14. STATS (sección Experiencia)
+   ============================================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stat-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.stat-card:hover { transform: translateY(-5px); box-shadow: 0 14px 35px rgba(0,0,0,0.08); }
+.stat-card:hover::before { transform: scaleX(1); }
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--foreground);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .stat-number { font-size: 1.75rem; }
+    .stat-card { padding: 1.5rem 1rem; }
+}
+
+/* ============================================================
+   === 15. NÚMERO DE ORDEN EN SERVICE CARDS
+   ============================================================ */
+
+.service-card-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(224, 26, 34, 0.18);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .service-card-number {
+    color: rgba(224, 26, 34, 0.4);
+}
+
+/* ============================================================
+   === 16. MEJORAS A CARD-MV (Misión / Visión)
+   ============================================================ */
+
+.card-mv {
+    border-left: 3px solid var(--primary);
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-right: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-mv:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+}
+
+/* ============================================================
+   === 17. NAVBAR ACTIVE LINK
+   ============================================================ */
+
+.nav-links a.nav-active {
+    color: var(--primary);
+    position: relative;
+}
+
+.nav-links a.nav-active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
+}
+
+/* ============================================================
+   === 18. CTA BANNER (antes del footer)
+   ============================================================ */
+
+.cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 10% 50%, rgba(255,255,255,0.08), transparent 40%),
+        radial-gradient(circle at 90% 50%, rgba(255,255,255,0.06), transparent 40%);
+    pointer-events: none;
+}
+
+.cta-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-banner-text { flex: 1; }
+
+.cta-banner-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.cta-banner-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.cta-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: white;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.cta-banner-btn i { font-size: 1.2rem; color: #25D366; }
+
+.cta-banner-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 640px) {
+    .cta-banner-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-banner-title { font-size: 1.25rem; }
+
+    .cta-banner-btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
+   === 19. ANIMACIONES DE SCROLL (reveal)
    ============================================================ */
 
 .reveal {
