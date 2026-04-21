@@ -17,11 +17,53 @@ function scrollToId(id) {
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         const id = link.getAttribute('href').slice(1);
-        if (id) {
+        if (!id) return;
+
+        // Si es un link de "nosotros", abrir el drawer en vez de hacer scroll
+        if (id === 'nosotros') {
             e.preventDefault();
-            scrollToId(id);
+            openNosotrosDrawer();
+            return;
         }
+
+        e.preventDefault();
+        scrollToId(id);
     });
+});
+
+// ===========================
+// Drawer "Nosotros"
+// ===========================
+const nosotrosDrawer  = document.getElementById('nosotros');
+const nosotrosOverlay = document.getElementById('nosotros-overlay');
+const nosotrosClose   = document.getElementById('nosotros-close');
+
+function openNosotrosDrawer() {
+    nosotrosDrawer.classList.add('active');
+    nosotrosOverlay.classList.add('active');
+    document.body.classList.add('drawer-open');
+    nosotrosDrawer.removeAttribute('aria-hidden');
+    // Re-inicializar iconos dentro del drawer
+    lucide.createIcons();
+    // Foco en el botón cerrar para accesibilidad
+    setTimeout(() => nosotrosClose && nosotrosClose.focus(), 50);
+}
+
+function closeNosotrosDrawer() {
+    nosotrosDrawer.classList.remove('active');
+    nosotrosOverlay.classList.remove('active');
+    document.body.classList.remove('drawer-open');
+    nosotrosDrawer.setAttribute('aria-hidden', 'true');
+}
+
+if (nosotrosClose)   nosotrosClose.addEventListener('click', closeNosotrosDrawer);
+if (nosotrosOverlay) nosotrosOverlay.addEventListener('click', closeNosotrosDrawer);
+
+// Cerrar con Escape
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nosotrosDrawer.classList.contains('active')) {
+        closeNosotrosDrawer();
+    }
 });
 
 // ===========================
@@ -102,7 +144,8 @@ window.addEventListener('load', () => {
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const sections = Array.from(navLinks)
     .map(link => document.getElementById(link.getAttribute('href').slice(1)))
-    .filter(Boolean);
+    // Excluir el drawer de nosotros — no es una sección en el flujo de scroll
+    .filter(el => el && el.tagName !== 'ASIDE');
 
 const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

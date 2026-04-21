@@ -33,7 +33,7 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#nosotros" class="nosotros-trigger">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -390,76 +390,65 @@
         </section>
 
         <!-- =====================
-             Misión y Visión
+             Drawer "Nosotros" (Misión y Visión)
+             No ocupa espacio en la página — se abre como panel lateral
+             al hacer clic en el enlace del navbar o el footer.
         ===================== -->
-        <section id="nosotros" class="section py-32 section-decorated">
+        <!-- Overlay -->
+        <div class="nosotros-overlay" id="nosotros-overlay" aria-hidden="true"></div>
 
-            <!-- Fondo decorativo -->
-            <div class="section-bg-decorations" aria-hidden="true">
-                <svg class="sec-grid-pattern" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="sec-grid-2" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(239,25,33,0.06)" stroke-width="1"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#sec-grid-2)"/>
-                </svg>
-                <svg class="sec-dots" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="5%"  cy="30%" r="3"   fill="rgba(239,25,33,0.18)" class="sec-dot-1"/>
-                    <circle cx="95%" cy="20%" r="4"   fill="rgba(163,18,24,0.16)" class="sec-dot-2"/>
-                    <circle cx="15%" cy="70%" r="3.5" fill="rgba(82,82,82,0.16)"  class="sec-dot-3"/>
-                    <circle cx="85%" cy="65%" r="3"   fill="rgba(239,25,33,0.18)" class="sec-dot-4"/>
-                </svg>
-                <div class="sec-shape-square">
-                    <svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="rgba(239,25,33,0.13)" stroke-width="2.5"/></svg>
+        <!-- Panel lateral -->
+        <aside id="nosotros" class="nosotros-drawer" role="dialog" aria-modal="true" aria-label="Acerca de nosotros">
+
+            <!-- Encabezado del drawer -->
+            <div class="nosotros-drawer-header">
+                <div class="nosotros-drawer-title">
+                    <span class="nosotros-drawer-label">Acerca de</span>
+                    <h2>Nosotros</h2>
                 </div>
-                <div class="sec-shape-circle">
-                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(163,18,24,0.13)" stroke-width="2.5"/></svg>
-                </div>
-                <svg class="sec-curved-lines" viewBox="0 0 1000 300" preserveAspectRatio="none">
-                    <path class="sec-curve-1" d="M0,150 Q250,50 500,150 T1000,150" fill="none" stroke="rgba(239,25,33,0.1)" stroke-width="2"/>
-                    <path class="sec-curve-2" d="M0,200 Q250,150 500,200 T1000,200" fill="none" stroke="rgba(163,18,24,0.08)" stroke-width="2"/>
-                </svg>
-                <div class="sec-corner-right">
-                    <svg viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(239,25,33,0.07)" stroke-width="1.5" stroke-dasharray="5,5"/>
-                        <circle cx="100" cy="100" r="55" fill="none" stroke="rgba(163,18,24,0.05)" stroke-width="1.5" stroke-dasharray="3,3"/>
-                    </svg>
-                </div>
-                <div class="sec-corner-left">
-                    <svg viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(239,25,33,0.06)" stroke-width="1.5" stroke-dasharray="6,6"/>
-                        <circle cx="100" cy="100" r="45" fill="none" stroke="rgba(163,18,24,0.05)" stroke-width="1.5" stroke-dasharray="4,4"/>
-                    </svg>
-                </div>
-                <div class="sec-blob-1"></div>
-                <div class="sec-blob-2"></div>
+                <button class="nosotros-close" id="nosotros-close" aria-label="Cerrar panel">
+                    <i data-lucide="x"></i>
+                </button>
             </div>
 
-            <div class="text-center reveal fade-up mb-12">
-                <h2 class="section-title">Acerca de <span class="text-primary">nosotros</span></h2>
-            </div>
-            <div class="container grid-2">
+            <!-- Contenido del drawer -->
+            <div class="nosotros-drawer-body">
 
-                <div class="card-mv reveal fade-left">
-                    <div class="icon-box-p"><i data-lucide="target"></i></div>
-                    <h2 class="text-3xl mb-4"><span class="text-primary">Misión</span></h2>
-                    <p class="text-muted-foreground leading-relaxed">Proveer soluciones integrales en impresión y
-                        copiado con el más alto nivel de calidad y profesionalismo, garantizando la satisfacción de
-                        nuestros clientes a través de un servicio técnico especializado, equipos de última tecnología y
-                        atención personalizada.</p>
+                <!-- Misión -->
+                <div class="nosotros-card">
+                    <div class="nosotros-card-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <div class="nosotros-card-content">
+                        <h3><span class="text-primary">Misión</span></h3>
+                        <p>Proveer soluciones integrales en impresión y copiado con el más alto nivel de calidad y
+                            profesionalismo, garantizando la satisfacción de nuestros clientes a través de un servicio
+                            técnico especializado, equipos de última tecnología y atención personalizada.</p>
+                    </div>
                 </div>
 
-                <div class="card-mv reveal fade-right" style="transition-delay: 0.2s">
-                    <div class="icon-box-p"><i data-lucide="eye"></i></div>
-                    <h2 class="text-3xl mb-4"><span class="text-primary">Visión</span></h2>
-                    <p class="text-muted-foreground leading-relaxed">Ser la empresa líder en soluciones de impresión y
-                        copiado en la región, reconocida por nuestra excelencia en el servicio, innovación tecnológica y
-                        compromiso con la satisfacción del cliente, expandiendo nuestros servicios.</p>
+                <!-- Visión -->
+                <div class="nosotros-card">
+                    <div class="nosotros-card-icon">
+                        <i data-lucide="eye"></i>
+                    </div>
+                    <div class="nosotros-card-content">
+                        <h3><span class="text-primary">Visión</span></h3>
+                        <p>Ser la empresa líder en soluciones de impresión y copiado en la región, reconocida por
+                            nuestra excelencia en el servicio, innovación tecnológica y compromiso con la satisfacción
+                            del cliente, expandiendo nuestros servicios.</p>
+                    </div>
                 </div>
 
+                <!-- CTA dentro del drawer -->
+                <a href="https://wa.me/573015038798" target="_blank" rel="noopener noreferrer"
+                    class="nosotros-cta btn-primary"
+                    data-ws-message="Hola, vi su página web y quisiera más información sobre Office del Sinú.">
+                    Contáctanos por WhatsApp
+                </a>
+
             </div>
-        </section>
+        </aside>
 
         <!-- =====================
              Ubicación
@@ -637,7 +626,7 @@
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#nosotros" class="nosotros-trigger">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
