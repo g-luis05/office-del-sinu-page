@@ -36,6 +36,24 @@
                     <li><a href="#nosotros" class="nosotros-trigger">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
+
+                <!-- Botón hamburguesa — solo visible en móvil -->
+                <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Menú móvil desplegable -->
+            <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros" class="nosotros-trigger">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -622,7 +640,6 @@
 
             <div>
                 <h4>Enlaces rápidos</h4>
-                <!-- Cambiados de <button onclick> a <a href> por semántica correcta -->
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#productos">Productos</a></li>

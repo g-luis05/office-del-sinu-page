@@ -132,8 +132,37 @@ document.querySelectorAll('a[data-ws-service]').forEach(anchor => {
 });
 
 // ===========================
-// Animación de entrada al cargar la página
+// Menú móvil (hamburguesa)
 // ===========================
+const hamburger  = document.getElementById('nav-hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMobileMenu(forceClose = false) {
+    const isOpen = mobileMenu.classList.contains('open');
+    if (forceClose || isOpen) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    } else {
+        mobileMenu.classList.add('open');
+        hamburger.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+}
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => toggleMobileMenu());
+}
+
+// Cerrar el menú al hacer clic en cualquier enlace del menú móvil
+mobileMenu && mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => toggleMobileMenu(true));
+});
+
+// Cerrar al hacer scroll
+window.addEventListener('scroll', () => toggleMobileMenu(true), { passive: true });
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
