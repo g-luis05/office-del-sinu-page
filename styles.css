@@ -985,6 +985,8 @@ body:not(.loaded) .hero-buttons {
     transition: all 0.35s ease;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card::before {
@@ -994,6 +996,7 @@ body:not(.loaded) .hero-buttons {
     background: radial-gradient(circle at top left, rgba(224, 26, 34, 0.08), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .service-card:hover {
@@ -1052,6 +1055,15 @@ body:not(.loaded) .hero-buttons {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.service-link::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
 }
 
 .service-link:hover { text-decoration: underline; }
