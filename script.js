@@ -4,6 +4,30 @@
 lucide.createIcons();
 
 // ===========================
+// Hero Slider - Rotación automática de imágenes
+// ===========================
+const heroSlider = document.querySelector('.hero-slider');
+if (heroSlider) {
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    if (slides.length > 1) {
+        let currentSlide = 0;
+        const slideDuration = 7000; // 7 segundos por imagen
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].setAttribute('aria-hidden', 'true');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].setAttribute('aria-hidden', 'false');
+        }
+        
+        setInterval(nextSlide, slideDuration);
+    }
+}
+
+// ===========================
 // Smooth Scroll — manejador global para todos los enlaces internos
 // Reemplaza los onclick inline del HTML
 // ===========================

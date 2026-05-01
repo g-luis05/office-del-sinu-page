@@ -60,19 +60,34 @@
 
     <main>
 
-        <!-- =====================
-             Hero
+<!-- =====================
+              Hero
         ===================== -->
         <section id="inicio" class="hero">
 
-            <!-- Decoraciones de fondo -->
-            <div class="hero-bg-decorations">
+            <!-- Fondo dinámico con imágenes en rotación -->
+            <div class="hero-slider">
+                <div class="hero-slide active" aria-hidden="false">
+                    <img src="src/imports/hero/one-sided-printer.webp" alt="" decoding="async" loading="eager">
+                </div>
+                <div class="hero-slide" aria-hidden="true">
+                    <img src="src/imports/hero/printer-inside.webp" alt="" decoding="async" loading="eager">
+                </div>
+                <div class="hero-slide" aria-hidden="true">
+                    <img src="src/imports/hero/repair-printer.webp" alt="" decoding="async" loading="eager">
+                </div>
+                <!-- Overlay oscuro para legibilidad -->
+                <div class="hero-slider-overlay"></div>
+            </div>
+
+            <!-- Decoraciones sutiles sobre el fondo de imágenes -->
+            <div class="hero-bg-decorations" aria-hidden="true">
 
                 <!-- Patrón de cuadrícula -->
                 <svg class="hero-grid-pattern" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(239, 25, 33, 0.08)" stroke-width="1"/>
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1"/>
                         </pattern>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#grid-pattern)"/>
@@ -80,45 +95,45 @@
 
                 <!-- Puntos animados -->
                 <svg class="hero-dots" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="15%" cy="20%" r="4"   fill="rgba(239, 25, 33, 0.3)"  class="hero-dot-1"/>
-                    <circle cx="85%" cy="30%" r="5"   fill="rgba(163, 18, 24, 0.25)" class="hero-dot-2"/>
-                    <circle cx="25%" cy="75%" r="3.5" fill="rgba(82, 82, 82, 0.25)"  class="hero-dot-3"/>
-                    <circle cx="75%" cy="80%" r="4.5" fill="rgba(239, 25, 33, 0.28)" class="hero-dot-4"/>
-                    <circle cx="50%" cy="50%" r="3"   fill="rgba(163, 18, 24, 0.2)"  class="hero-dot-5"/>
+                    <circle cx="15%" cy="20%" r="4"   fill="rgba(255, 255, 255, 0.15)"  class="hero-dot-1"/>
+                    <circle cx="85%" cy="30%" r="5"   fill="rgba(255, 255, 255, 0.12)" class="hero-dot-2"/>
+                    <circle cx="25%" cy="75%" r="3.5" fill="rgba(255, 255, 255, 0.1)"  class="hero-dot-3"/>
+                    <circle cx="75%" cy="80%" r="4.5" fill="rgba(255, 255, 255, 0.12)" class="hero-dot-4"/>
+                    <circle cx="50%" cy="50%" r="3"   fill="rgba(255, 255, 255, 0.08)"  class="hero-dot-5"/>
                 </svg>
 
                 <!-- Formas geométricas -->
                 <div class="hero-shape-square">
-                    <svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="rgba(239, 25, 33, 0.18)" stroke-width="2.5"/></svg>
+                    <svg viewBox="0 0 100 100"><rect x="25" y="25" width="50" height="50" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2.5"/></svg>
                 </div>
                 <div class="hero-shape-circle">
-                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(163, 18, 24, 0.2)" stroke-width="2.5"/></svg>
+                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5"/></svg>
                 </div>
                 <div class="hero-shape-triangle">
-                    <svg viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="rgba(82, 82, 82, 0.15)" stroke-width="2.5"/></svg>
+                    <svg viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5"/></svg>
                 </div>
                 <div class="hero-shape-triangle-2">
-                    <svg viewBox="0 0 100 100"><polygon points="50,20 80,80 20,80" fill="none" stroke="rgba(239, 25, 33, 0.16)" stroke-width="2.5"/></svg>
+                    <svg viewBox="0 0 100 100"><polygon points="50,20 80,80 20,80" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="2.5"/></svg>
                 </div>
 
                 <!-- Líneas curvas animadas -->
                 <svg class="hero-curved-lines" viewBox="0 0 1000 300" preserveAspectRatio="none">
-                    <path class="hero-curve-1" d="M0,150 Q250,50 500,150 T1000,150" fill="none" stroke="rgba(239, 25, 33, 0.15)" stroke-width="2.5"/>
-                    <path class="hero-curve-2" d="M0,200 Q250,150 500,200 T1000,200" fill="none" stroke="rgba(163, 18, 24, 0.12)" stroke-width="2.5"/>
+                    <path class="hero-curve-1" d="M0,150 Q250,50 500,150 T1000,150" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5"/>
+                    <path class="hero-curve-2" d="M0,200 Q250,150 500,200 T1000,200" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="2.5"/>
                 </svg>
 
                 <!-- Acentos de esquina -->
                 <div class="hero-corner-accent-right">
                     <svg viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(239, 25, 33, 0.1)"  stroke-width="1.5" stroke-dasharray="5,5"/>
-                        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(163, 18, 24, 0.08)" stroke-width="1.5" stroke-dasharray="3,3"/>
-                        <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(82, 82, 82, 0.06)"  stroke-width="1.5" stroke-dasharray="4,4"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255, 255, 255, 0.05)"  stroke-width="1.5" stroke-dasharray="5,5"/>
+                        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5" stroke-dasharray="3,3"/>
+                        <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255, 255, 255, 0.03)"  stroke-width="1.5" stroke-dasharray="4,4"/>
                     </svg>
                 </div>
                 <div class="hero-corner-accent-left">
                     <svg viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(239, 25, 33, 0.09)" stroke-width="1.5" stroke-dasharray="6,6"/>
-                        <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(163, 18, 24, 0.07)" stroke-width="1.5" stroke-dasharray="4,4"/>
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.5" stroke-dasharray="6,6"/>
+                        <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1.5" stroke-dasharray="4,4"/>
                     </svg>
                 </div>
 
@@ -155,20 +170,6 @@
                         <div class="trust-item"><div class="trust-dot"></div><span>Servicio profesional</span></div>
                         <div class="trust-item"><div class="trust-dot"></div><span>Garantía incluida</span></div>
                         <div class="trust-item"><div class="trust-dot"></div><span>Atención rápida</span></div>
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="hero-image-wrapper">
-                        <div class="hero-image-overlay"></div>
-                        <img src="src/imports/hero/tecnico-impresoras.jpg" alt="Reparación de impresoras en Montería">
-                    </div>
-                    <div class="hero-floating-card">
-                        <div class="floating-card-icon"><i data-lucide="message-circle"></i></div>
-                        <div class="floating-card-content">
-                            <p class="floating-card-label">Cotización inmediata</p>
-                            <p class="floating-card-text">Respuesta en menos de 1 hora</p>
-                        </div>
                     </div>
                 </div>
             </div>
