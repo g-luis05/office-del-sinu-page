@@ -219,9 +219,9 @@ body {
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(3, 2, 19, 0.72) 0%,
-        rgba(3, 2, 19, 0.58) 50%,
-        rgba(3, 2, 19, 0.68) 100%
+        rgba(3, 2, 19, 0.42) 0%,
+        rgba(3, 2, 19, 0.32) 50%,
+        rgba(3, 2, 19, 0.38) 100%
     );
     z-index: 1;
 }
@@ -624,9 +624,9 @@ body:not(.loaded) .hero-buttons {
     .hero-slider-overlay {
         background: linear-gradient(
             135deg,
-            rgba(3, 2, 19, 0.82) 0%,
-            rgba(3, 2, 19, 0.68) 50%,
-            rgba(3, 2, 19, 0.78) 100%
+            rgba(3, 2, 19, 0.52) 0%,
+            rgba(3, 2, 19, 0.42) 50%,
+            rgba(3, 2, 19, 0.48) 100%
         );
     }
 }
