@@ -11,7 +11,7 @@ if (heroSlider) {
     const slides = heroSlider.querySelectorAll('.hero-slide');
     if (slides.length > 1) {
         let currentSlide = 0;
-        const slideDuration = 7000; // 7 segundos por imagen
+        const slideDuration = 6000; // 6 segundos por imagen
         
         function nextSlide() {
             slides[currentSlide].classList.remove('active');

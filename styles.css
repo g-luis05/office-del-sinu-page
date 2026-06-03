@@ -200,7 +200,7 @@ body {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-slide.active {
@@ -212,6 +212,12 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transform: scale(1.05);
+    transition: transform 6s ease-out;
+}
+
+.hero-slide.active img {
+    transform: scale(1);
 }
 
 .hero-slider-overlay {
